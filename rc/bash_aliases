@@ -1,0 +1,57 @@
+alias e="emacs -q -nw -eval \"(progn (setq inhibit-startup-message t)(global-font-lock-mode t))\""
+alias ee="emacs -q -nw --no-site -eval \"(progn (setq inhibit-startup-message t)(global-font-lock-mode t))\""
+
+alias mi='make -s && make -s install && inveniocfg --update-all'
+alias re="inveniocfg --update-all && serve -b 0.0.0.0 -p 5000"
+alias con="aclocal-1.9 && automake-1.9 -a && autoconf && ./configure"
+
+alias rs="rsync -rlptDvz -e ssh --delete ~/src/invenio jlavik@pcudssw1508:private/src/"
+alias rsi="rsync -rlptDvz -e ssh --delete ~/src/inspire jlavik@pcudssw1508:private/src/"
+alias rso="rsync -rlptDvz -e ssh --delete ~/src/invenio-inspire-ops jlavik@pcudssw1508:private/src/"
+alias rsd="rsync -rlptDvz -e ssh --delete ~/src/invenio-devscripts jlavik@pcudssw1508:private/src/"
+alias rsb="rsync -rlptDvz -e ssh --delete jlavik@lxplus.cern.ch:private/src/invenio ~/src/invenio"
+alias rsgs="rsync -rlptDvz -e ssh ~/src/invenio jlavik@PCGS2X3160H65:development/src/"
+alias rsgsi="rsync -rlptDvz -e ssh --delete ~/src/inspire jlavik@PCGS2X3160H65:development/src/"
+alias rsodev='rsync -rlptDvz -e ssh --delete ~/src/invenio-inspire-ops jlavik@pcudssw1508:/opt/jlavik/src/'
+alias rsidev='rsync -rlptDvz -e ssh --delete ~/src/inspire jlavik@pcudssw1508:/opt/jlavik/src/'
+
+export VISUAL=vim
+export EDITOR=vim
+
+alias recs="grep -c '</record>'"
+alias harvest="python ~/src/scripts/harvesting/harvest.py"
+alias generate="python ~/src/scripts/matching/generate_output.py"
+alias recidmap="python ~/src/scripts/matching/recidmap.py"
+
+## Keeping things organized
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -A'
+#alias rm='mv -t ~/.local/share/Trash/files'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p -v'
+alias df='df -h'
+alias du='du -h -c'
+alias reload='source ~/.bashrc'
+alias biggest='BLOCKSIZE=1048576; du -x | sort -nr | head -10'
+alias tree='tree -Cs'        # nice alternative to 'ls'
+
+## gitz
+alias gitd='git for-each-ref --format="%(committerdate:short): %(refname)" --sort=committerdate refs/heads/'
+
+## Moving around & all that jazz
+alias back='cd $OLDPWD'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+## Dir shortcuts
+alias invenio='cd ~/src/invenio'
+alias inspire='cd ~/src/inspire'
+alias tranformations='cd ~/src/transformations'
+
+alias restart-apache='sudo /etc/init.d/apache2 restart'
+
