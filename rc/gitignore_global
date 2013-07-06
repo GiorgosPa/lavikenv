@@ -1,0 +1,8 @@
+*.kdevelop
+*.kdevses
+.project
+.settings
+.pydevproject
+org.eclipse.core.resources.prefs
+*.sublime-project
+*.sublime-workspace
