@@ -10,7 +10,7 @@ To install the config files:
 
     git clone https://github.com/jalavik/lavikenv.git
     cd lavikenv
-    . install
+    ./install.sh
 
 This will create backups for anything already existing and add symlinks
 to the files in the repository, for easy upgrade later.
