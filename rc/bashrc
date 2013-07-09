@@ -5,7 +5,7 @@
 export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio-inspire-ops
 export CFG_INSPIRE_SRCDIR=$HOME/private/src/inspire
 export CFG_INVENIO_PREFIX=/opt/cds-invenio
-export GIT_EDITOR='sublime -w'
+export GIT_EDITOR='subl -w'
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
