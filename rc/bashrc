@@ -241,6 +241,9 @@ export EDITOR=vim
 export VISUAL=vim
 export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio-inspire-ops
 export CFG_INSPIRE_SRCDIR=$HOME/private/src/inspire
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+
 # Enable Invenio devscripts
 if [ -n "$SSH_CLIENT" ]
 then
@@ -249,6 +252,8 @@ then
     export CFG_INSPIRE_SRCDIR=$HOME/private/src/inspire
     export CFG_INVENIO_PREFIX=/opt/cds-invenio
     export CFG_INVENIO_USER=apache
+    export CFG_INVENIO_BIBTASK_USER=jlavik
+    export CFG_INSPIRE_BIBTASK_USER=jlavik
     export PATH=$CFG_INVENIO_PREFIX/bin:$PATH
 else
     export PATH=$HOME/src/invenio-devscripts:$PATH
@@ -262,6 +267,8 @@ else
     export CFG_INVENIO_PORT_HTTP=80
     export CFG_INVENIO_PORT_HTTPS=443
     export CFG_INVENIO_USER=www-data
+    export CFG_INVENIO_BIBTASK_USER=admin
+    export CFG_INSPIRE_BIBTASK_USER=admin
     export CFG_INVENIO_ADMIN=jan.age.lavik@cern.ch
     export PATH=$CFG_INVENIO_PREFIX/bin:$PATH
     export WORKON_HOME=~/envs
@@ -271,5 +278,4 @@ fi
 
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=~/envs
-source /usr/local/bin/virtualenvwrapper.sh
+
