@@ -3,7 +3,7 @@ alias ee="emacs -q -nw --no-site -eval \"(progn (setq inhibit-startup-message t)
 
 alias mi='make -s && make -s install && inveniocfg --update-all'
 alias re="inveniocfg --update-all && serve -b 0.0.0.0 -p 5000"
-alias con="aclocal-1.9 && automake-1.9 -a && autoconf && ./configure"
+alias con="aclocal && automake -a && autoconf && ./configure"
 
 alias rs="rsync -rlptDvz -e ssh --delete ~/src/invenio jlavik@pcudssw1508:private/src/"
 alias rsi="rsync -rlptDvz -e ssh --delete ~/src/inspire jlavik@pcudssw1508:private/src/"
@@ -58,3 +58,4 @@ alias restart-apache='sudo /etc/init.d/apache2 restart'
 # Invenio
 alias recreate="inveniomanage database recreate --yes-i-know || inveniocfg --drop-tables --drop-demo-site --create-tables --create-demo-site"
 alias updateall="inveniomanage config update || inveniocfg --update-all"
+alias check="invenio-check-kwalitee --check-some `git diff --name-only HEAD~1`"
