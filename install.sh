@@ -18,8 +18,10 @@ for f in $mydir/rc/*; do
     cp -R $dest $backup/$file
   fi
   echo "Symlinking: .$file"
-  ln -fs $source $dest
+  ln -is $source $dest
 
 done
+
+cp -iR $mydir/config/* $HOME/.config/
 
 echo "Done."
