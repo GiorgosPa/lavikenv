@@ -2,12 +2,19 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio-inspire-ops
+export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio
 export CFG_INSPIRE_SRCDIR=$HOME/private/src/inspire
 export CFG_INVENIO_PREFIX=/opt/cds-invenio
 export GIT_EDITOR='subl -w'
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
+
+JAVA_HOME=/usr/local/java/jre1.7.0_45
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+export JAVA_HOME
+export PATH
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd_hrgb -Dswing.aatext=true -Dsun.java2d.xrender=true'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -239,7 +246,7 @@ fi
 
 export EDITOR=vim
 export VISUAL=vim
-export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio-inspire-ops
+export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio
 export CFG_INSPIRE_SRCDIR=$HOME/private/src/inspire
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
@@ -248,7 +255,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 if [ -n "$SSH_CLIENT" ]
 then
     export PATH=/usr/local/bin:$PATH
-    export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio-inspire-ops
+    export CFG_INVENIO_SRCDIR=$HOME/private/src/invenio
     export CFG_INSPIRE_SRCDIR=$HOME/private/src/inspire
     export CFG_INVENIO_PREFIX=/opt/cds-invenio
     export CFG_INVENIO_USER=apache
@@ -259,23 +266,22 @@ else
     export PATH=$HOME/src/invenio-devscripts:$PATH
     export PATH=$HOME/src/inspire-devscripts:$PATH
     export PATH=/usr/local/bin:$PATH
-    export CFG_INVENIO_SRCDIR=$HOME/src/invenio-inspire-ops
+    export CFG_INVENIO_SRCDIR=$HOME/src/invenio
     export CFG_INSPIRE_SRCDIR=$HOME/src/inspire
     export CFG_INVENIO_PREFIX=/opt/invenio
-    export CFG_INVENIO_HOSTNAME=GS-SIS-JLAVIK-HP-1
+    export CFG_INVENIO_HOSTNAME=`hostname`
     export CFG_INVENIO_DOMAINNAME=cern.ch
-    export CFG_INVENIO_PORT_HTTP=80
-    export CFG_INVENIO_PORT_HTTPS=443
-    export CFG_INVENIO_USER=www-data
+    export CFG_INVENIO_PORT_HTTP=4000
+    export CFG_INVENIO_PORT_HTTPS=4000
+    export CFG_INVENIO_USER=`whoami`
     export CFG_INVENIO_BIBTASK_USER=admin
     export CFG_INSPIRE_BIBTASK_USER=admin
-    export CFG_INVENIO_ADMIN=jan.age.lavik@cern.ch
+    export CFG_INVENIO_ADMIN=`whoami`@cern.ch
+    export CFG_INVENIO_VIRTUALENVS=~/envs
     export PATH=$CFG_INVENIO_PREFIX/bin:$PATH
-    export WORKON_HOME=~/envs
+    export WORKON_HOME=$CFG_INVENIO_VIRTUALENVS
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
-
-export WORKON_HOME=~/envs
-source /usr/local/bin/virtualenvwrapper.sh
-
+export MYSQL_ADMIN_USER=root
+export MYSQL_ADMIN_PASS=mysql
