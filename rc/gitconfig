@@ -48,3 +48,5 @@
 	trustExitCode = false
 [merge]
 	tool = sublime
+[branch]
+	autosetuprebase = always
