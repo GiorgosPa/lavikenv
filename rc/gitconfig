@@ -43,6 +43,7 @@
     squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
     ri = rebase --interactive --autosquash
     mf = merge --ff-only
+    mt = mergetool -y
 [mergetool "sublime"]
 	cmd = subl -w $MERGED
 	trustExitCode = false
@@ -50,3 +51,9 @@
 	tool = sublime
 [branch]
 	autosetuprebase = always
+[push]
+	default = simple
+[diff]
+    mnemonicprefix = true
+[rerere]
+	enabled = true

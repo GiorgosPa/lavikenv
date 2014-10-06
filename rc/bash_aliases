@@ -58,4 +58,8 @@ alias restart-apache='sudo /etc/init.d/apache2 restart'
 # Invenio
 alias recreate="inveniomanage database recreate --yes-i-know || inveniocfg --drop-tables --drop-demo-site --create-tables --create-demo-site"
 alias updateall="inveniomanage config update || inveniocfg --update-all"
-alias check="invenio-check-kwalitee --check-some `git diff --name-only HEAD~1`"
+alias check='invenio-check-kwalitee --check-some `git diff --name-only HEAD~1`'
+
+alias rst="npm install && bower install && grunt && inveniomanage collect"
+alias ims="inveniomanage shell"
+alias run="inveniomanage runserver"
